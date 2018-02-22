@@ -15,7 +15,7 @@ Class Voiture{
 		if($prix <10000){
 			throw new Exception("Le prix ne peut pas être fixé en dessous de 10000 €");
 		}
-		$this->prix = $prix + (($prix * $_tva)/100);
+		$this->prix = $prix + (($prix * $this->_tva)/100);
 	}
 
 	//GETTERS
@@ -44,6 +44,10 @@ $voiture_A->setPrix(15000);
 //récupérationde la couleur
 echo $voiture_A->getCouleur();
 
+
+//récupérationde du prix
+echo $voiture_A->getPrix();
+
 //Modification du prix
 try{
 	$voiture_A->setPrix(3000);
@@ -53,4 +57,4 @@ try{
 }
 
 //essai modif variable privée tva à 21
-echo $voiture_A->$_tva = 21;
+echo $voiture_A->_tva = 21;
