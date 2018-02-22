@@ -3,6 +3,7 @@ Class Voiture{
 	//propriétés
 	public $couleur;
 	public $prix;
+	private $_tva = 20;
 
 	//méthodes
 	//SETTERS
@@ -14,7 +15,7 @@ Class Voiture{
 		if($prix <10000){
 			throw new Exception("Le prix ne peut pas être fixé en dessous de 10000 €");
 		}
-		$this->prix = $prix;
+		$this->prix = $prix + (($prix * $_tva)/100);
 	}
 
 	//GETTERS
@@ -26,8 +27,7 @@ Class Voiture{
 		return 'Le prix de la voiture est de '.$this->prix.' euros<br>';
 	}
 
-
-}
+} // fin de classe Voiture
 
 //instanciation
 $voiture_A = new Voiture();
@@ -42,7 +42,7 @@ echo $voiture_A->getCouleur();
 $voiture_A->setPrix(15000);
 
 //récupérationde la couleur
-echo $voiture_A->getPrix();
+echo $voiture_A->getCouleur();
 
 //Modification du prix
 try{
@@ -51,3 +51,6 @@ try{
     echo $e->getMessage(); // On affiche le message envoyé par "throw new Exception()"
 
 }
+
+//essai modif variable privée tva à 21
+echo $voiture_A->$_tva = 21;
