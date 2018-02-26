@@ -12,7 +12,6 @@ function pr($variable){
 	echo '</pre>';
 }
 
-
 function ve($variable){
 	echo '<pre>';
 	var_export($variable);
